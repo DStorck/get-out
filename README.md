@@ -15,10 +15,10 @@ If this all takes way longer than I expect, I will hope to at least create an ap
 For now, me.  With all my free time that I have since I started Ada and had a child.  Actually since I have so free little time it would be nice to know what events are happening with as little effort possible.  And keep track of them.  Perhaps if this works well I can get some friends using it. We'll see how it goes.
 
 #### Technology
-I will setting up a basic rails app, using OAUTH to log in users (potentially with Spotify so that I can poke around and maybe do things like offer user concert suggestions based on their music preferences - that will take some poking around). I am going to try to scan a few event APIS like Eventful to run my searches, and then store the inforamtion in a postgres database.
+I will setting up a basic rails app, using OAUTH to log in users (potentially with Spotify so that I can poke around and maybe do things like offer user concert suggestions based on their music preferences - that will take some poking around). I am going to try to scan a few event APIS like Eventful to run my searches, and then store the information in a postgres database.
 
+#### Learning goals
+I need more practice with everything really.  I want to take the time to set this up right because my tendency is to force things to work without really thinking about the best places to put things.  I want to plan this out a little before I dive in, and do things in waves.  I feel like I work better with a partner when I am constantly forced to explain things and talk through my thought process.  Without someone to bounce ideas off I tend to get off track sometimes so it's going to be good for me to have to do everything myself and plan it all out.
 
-
-
-
-
+#### Success
+I would like to make an app that is super easy to use.  I want people to be able to log on, click a button or two, and get information.  This is not an app people would spend more than a few minutes on at a time, so I want the experience to be pleasant and informative.  I often want to know if an event is coming up that I would want to go to, but don't want to spend forever searching different things, I just want to be presented with a list that has been hand crafted for my tastes.  And it'll be nice to be able to click on them so I don't have to remember what they are, because my brain is a pile of mush these days. 
