@@ -20,13 +20,24 @@
   <%= submit_tag "Add favorite search term."%>
 <% end %>
 
+<% if @event_instances %>
+  <% @event_instances.each do |event| %>
+  Event: <%= link_to event.name , event.url%> <br>
+  Date: <%= event.when %><br>
+  Venue: <%= event.venue %><br>
+  <br>
+  <% end %>
+<% end %>
 
 
 
 
-<% @response.each do |event| %>
-Event: <%= event["title"] %> <br>
-Date: <%= event["start_time"] %><br>
-Venue: <%= event["venue_name"] %><br>
-<br>
+
+<% if @response %>
+  <% @response.each do |event| %>
+  Event: <%= event["title"] %> <br>
+  Date: <%= event["start_time"] %><br>
+  Venue: <%= event["venue_name"] %><br>
+  <br>
+  <% end %>
 <% end %>
