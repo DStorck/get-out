@@ -16,6 +16,7 @@
         <li><%= "Welcome, #{ current_user.name }"%></li>
         <li><%= link_to "Log Out", logout_path, method: :delete%></li>
         <li><%= link_to "Your Search Terms", favorite_path(current_user.id) %> </li>
+        <li><%= link_to "GET OUT!", search_favorites_path(current_user.id) %></li>
       <% else %>
         <li><%= link_to "Log In", '/auth/spotify'%></li>
       <% end %>

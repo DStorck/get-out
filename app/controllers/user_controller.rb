@@ -11,4 +11,9 @@ class UserController < ApplicationController
     render :favorite
   end
 
+  def search_favorites
+    @events = User.search_all_favorites(current_user)
+    render :search_favorites
+  end
+
 end

@@ -19,4 +19,6 @@ class SearchController < ApplicationController
     render :index
   end
 
+
+
 end

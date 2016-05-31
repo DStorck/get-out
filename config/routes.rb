@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   delete "/logout" => "sessions#destroy"
   get "user/:id/favorites" => "user#show_faves" , as: :favorite
   post 'user/:id/favorites' => 'user#favorite'
+  get "user/:id/favorite-events" => "user#search_favorites", as: :search_favorites
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

@@ -25,8 +25,19 @@ class User < ActiveRecord::Base
     name = params[:name]
     category = params[:category]
     fav = Favorite.create(name: name, category: category, user_id: current_user.id)
-
   end
+
+  def self.search_all_favorites(current_user)
+    fav_keywords = Favorite.where(user_id: current_user.id).map{ |fav| fav.name }
+    @events = []
+    fav_keywords.each do |keyword|
+      @events << EventfulAPIWrapper.search(keyword)
+    end
+    @events
+    # binding.pry
+  end
+
+
 
 
 
