@@ -1,0 +1,7 @@
+<h2>Your favorite searches:</h2><br><br>
+
+<% @favorites.each do |fav| %>
+Artist: <%= fav.name %><br>
+Category: <%= fav.category %><br>
+<br>
+<% end %>
