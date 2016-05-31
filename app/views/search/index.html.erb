@@ -24,4 +24,9 @@
 
 
 
-<%= @response %>
+<% @response.each do |event| %>
+Event: <%= event["title"] %> <br>
+Date: <%= event["start_time"] %><br>
+Venue: <%= event["venue_name"] %><br>
+<br>
+<% end %>
