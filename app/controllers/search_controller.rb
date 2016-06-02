@@ -7,7 +7,7 @@ class SearchController < ApplicationController
     initial_response = EventfulAPIWrapper.search(params[:term])
     response_array = initial_response["events"]["event"] if initial_response["total_items"] != "0"
     @event_instances = []
-    if initial_response["total_items"] == '1'
+    if initial_response["total_items"].to_i == 1
       @event_instances << Event.find_event(response_array)
     elsif initial_response["total_items"].to_i > 1
       response_array.each do |event|
@@ -15,7 +15,6 @@ class SearchController < ApplicationController
         @event_instances << temp
       end
     end
-
     render :index
   end
 

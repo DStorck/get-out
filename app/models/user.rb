@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   has_many :events
 
   def self.find_or_create_from_omniauth(auth_hash)
-  # Find or create a user
     user = self.find_by(uid: auth_hash["info"]["id"], provider: auth_hash["provider"])
     if !user.nil?
       return user
@@ -27,18 +26,24 @@ class User < ActiveRecord::Base
     fav = Favorite.create(name: name, category: category, user_id: current_user.id)
   end
 
-  def self.search_all_favorites(current_user)
+  def self.search_favorites(current_user)
     fav_keywords = Favorite.where(user_id: current_user.id).map{ |fav| fav.name }
-    @events = []
+    @event_instances = []
     fav_keywords.each do |keyword|
-      @events << EventfulAPIWrapper.search(keyword)
+      initial_response  = EventfulAPIWrapper.search(keyword)
+      response_array = initial_response["events"]["event"] if initial_response["total_items"] != "0"
+
+      if initial_response["total_items"].to_i == 1
+        @event_instances << Event.create_from_eventful(response_array)
+      elsif initial_response["total_items"].to_i > 1
+        response_array.each do |event|
+          temp = Event.create_from_eventful(event)
+          @event_instances << temp
+        end
+
+      end
     end
-    @events
-    # binding.pry
+    @event_instances
+
   end
-
-
-
-
-
 end
