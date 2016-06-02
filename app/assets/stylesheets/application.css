@@ -17,10 +17,14 @@
  h1 {
    color: rgb(228, 162, 33);
    text-align: center;
-   text-shadow: 1px 1px  rgb(183, 191, 221);
    font-size: 5rem;
  }
 
- div.nav-right {
-   margin: 0 auto;
+ li.search {
+   margin-top: 11px;
  }
+
+span.artist {
+  font-size: 2rem;
+  color: rgb(119, 107, 92);
+}

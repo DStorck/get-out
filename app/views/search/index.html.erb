@@ -1,13 +1,5 @@
 <% if current_user %>
 
-  <h2>Search term:</h2>
-  <%= form_tag '/search' do %>
-    <%= label_tag :term %>
-    <%= text_field_tag :term %>
-
-    <%= submit_tag "Find Events"%>
-  <% end %>
-
   <h2>Add a favorite search term:</h2>
   <%= form_tag favorite_path(current_user.id) do %>
     <%= label_tag :name %>
@@ -34,6 +26,7 @@
           <br>
         </div>
 
+        <hr>
      <% end %>
    <% end %>
   </div>

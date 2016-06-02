@@ -21,6 +21,12 @@
           <li><%= link_to "Your Events", user_events_path(current_user.id) %></li>
           <li><%= link_to "GET OUT!", search_favorites_path(current_user.id) %></li>
           <li><%= link_to "Log Out", logout_path, method: :delete%></li>
+          <li class="search">
+            <%= form_tag '/search' do %>
+              <%= text_field_tag :term %>
+              <%= submit_tag "Find Events"%>
+            <% end %>
+          </li>
         <% else %>
           <li><%= link_to "Log In", '/auth/spotify'%></li>
         <% end %>

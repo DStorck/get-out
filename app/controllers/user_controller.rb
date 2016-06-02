@@ -28,6 +28,13 @@ class UserController < ApplicationController
     render :add_event
   end
 
+  def delete_fave
+    fave = Favorite.find(params[:fave_id])
+    fave.delete
+    @favorites = Favorite.where(user_id: current_user.id)
+    render :favorite
+  end
+
   def user_events
     delete_past_events
     @user_events = Event.where(user_id: current_user.id).order(:start_time)

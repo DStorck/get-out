@@ -1,23 +1,31 @@
 <div class="container">
   <h2>Your favorite searches:</h2><br><br>
 
-
-
     <% if @favorites %>
     <% @favorites.each do |fav| %>
     <div class="row">
+
+      <div class= "col-md-4">
+        <p><span class="artist"><%= fav.name.titleize %></span><br></p>
+        <br>
+      </div>
+
       <div class="col-md-2">
         <%= form_tag '/search' do %>
-          <%= hidden_field_tag :term, fav.name %>
-          <%= submit_tag "Find Events", class: 'btn btn-primary'%>
+        <%= hidden_field_tag :term, fav.name %>
+        <%= submit_tag "Find Events", class: 'btn btn-primary'%>
         <% end %>
       </div>
 
-      <div class= "col-md-10">
-        <p><%= fav.name.titleize %><br></p>
-        <br>
+      <div class="col-md-6">
+        <%= form_tag favorite_path(current_user.id), method: :delete do %>
+          <%= hidden_field_tag :fave_id, fav.id %>
+          <%= submit_tag "Delete Search Term", class: 'btn btn-danger'%>
+        <% end %>
       </div>
+
     </div>
+    <hr>
 
      <% end %>
    <% end %>

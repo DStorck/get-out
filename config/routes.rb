@@ -14,9 +14,10 @@ Rails.application.routes.draw do
 
   get "user/:id/favorites" => "user#show_faves" , as: :favorite
   post 'user/:id/favorites' => 'user#favorite'
+  delete "user/:id/favorites" => "user#delete_fave"
 
   get "user/:id/favorite-events" => "user#search_favorites", as: :search_favorites
-  
+
   patch "user/:id/events" => "user#add_event", as: :add_event
   delete "user/:id/events" => "user#delete_event" , as: :delete_event
   get "user/:id/events" => "user#user_events", as: :user_events
