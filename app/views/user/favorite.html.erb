@@ -1,6 +1,23 @@
-<h2>Your favorite searches:</h2><br><br>
+<div class="container">
+  <h2>Your favorite searches:</h2><br><br>
 
-<% @favorites.each do |fav| %>
-<%= fav.name %><br>
-<br>
-<% end %>
+
+
+    <% if @favorites %>
+    <% @favorites.each do |fav| %>
+    <div class="row">
+      <div class="col-md-3">
+        <%= form_tag '/search' do %>
+          <%= hidden_field_tag :term, fav.name %>
+          <%= submit_tag "Find Events"%>
+        <% end %>
+      </div>
+
+      <div class= "col-md-9">
+        <%= fav.name %><br>
+      </div>
+    </div>
+
+     <% end %>
+   <% end %>
+ </div>
