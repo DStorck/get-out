@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
   belongs_to :user
-  attr_accessor :name, :uid, :location, :url, :description, :start_time, :venue
+  #attr_accessor :name, :uid, :location, :url, :description, :start_time, :venue
 
   def self.find_event(info)
     self.new(info)

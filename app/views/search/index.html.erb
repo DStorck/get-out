@@ -7,7 +7,6 @@
 
     <%= submit_tag "Find Events"%>
   <% end %>
-<% end %>
 
 <h1>Add a favorite search term:</h1>
 <%= form_tag favorite_path(current_user.id) do %>
@@ -23,12 +22,13 @@
 <% if @event_instances %>
   <% @event_instances.each do |event| %>
   Event: <%= link_to event.name , event.url%> <br>
-  Date: <%= event.when %><br>
+  Date: <%= event.start_time %><br>
   Venue: <%= event.venue %><br>
   <br>
   <% end %>
 <% end %>
 
+<% end %>
 
 
 

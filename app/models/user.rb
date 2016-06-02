@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
 
       if initial_response["total_items"].to_i == 1
         @event_instances << Event.create_from_eventful(response_array)
+  
       elsif initial_response["total_items"].to_i > 1
         response_array.each do |event|
           temp = Event.create_from_eventful(event)
