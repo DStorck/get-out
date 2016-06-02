@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get "user/:id/favorites" => "user#show_faves" , as: :favorite
   post 'user/:id/favorites' => 'user#favorite'
   get "user/:id/favorite-events" => "user#search_favorites", as: :search_favorites
+  patch "user/:id/events" => "user#add_event", as: :add_event
+  delete "user/:id/events" => "user#delete_event" , as: :delete_event
+  get "user/:id/events" => "user#user_events", as: :user_events
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

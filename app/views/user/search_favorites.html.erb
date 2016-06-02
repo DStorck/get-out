@@ -2,7 +2,7 @@ Get Out and Enjoy one of these fine, fine events:<br>
 <% @event_instances.each do |event| %>
 Event: <%= link_to event.name , event.url%> <br>
 Location:<%= event.location %><br>
-Date: <%= event.start_time %><br>
+Date: <%= event.start_time.strftime("%b %d, %Y") %><br>
 Venue: <%= event.venue %><br>
 <br>
 <% end %>

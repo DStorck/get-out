@@ -16,4 +16,22 @@ class UserController < ApplicationController
     render :search_favorites
   end
 
+  def add_event
+    event = Event.find_by(id: params[:event_id])
+    event.update(user_id: current_user.id)
+    @user_events = Event.where(user_id: current_user.id)
+  end
+
+  def delete_event
+    event = Event.find_by(id: params[:event_id])
+    event.delete
+    @user_events = Event.where(user_id: current_user.id)
+    render :add_event
+  end
+
+  def user_events
+    @user_events = Event.where(user_id: current_user.id)
+    render :add_event
+  end
+
 end
