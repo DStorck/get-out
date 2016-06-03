@@ -1,8 +1,29 @@
-Get Out and Enjoy one of these fine, fine events:<br>
-<% @event_instances.each do |event| %>
-Event: <%= link_to event.name , event.url%> <br>
-Location:<%= event.location %><br>
-Date: <%= event.start_time.strftime("%b %d, %Y") %><br>
-Venue: <%= event.venue %><br>
-<br>
-<% end %>
+<h2>Get Out and enjoy one of these fine, fine events:</h2><br>
+
+
+<div class="container">
+  <% if @event_instances %>
+   <% @event_instances.each do |event| %>
+   <div class="row">
+
+      <div class= "col-md-9">
+        Event: <%= link_to event.name , event.url%> <br>
+        Date: <%= event.start_time.strftime("%b %d, %Y") %><br>
+        Venue: <%= event.venue %><br>
+        <br>
+      </div>
+
+      <div class= "col-md-3">
+        <% if current_user %>
+          <%= form_tag add_event_path(current_user.id), method: :patch do %>
+          <%= hidden_field_tag :event_id, event.id %>
+          <%= submit_tag "Add to your events" , class: 'btn btn-warning'%>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+    <hr>
+     <% end %>
+  <% end %>
+</div>

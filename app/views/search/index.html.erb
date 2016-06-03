@@ -1,33 +1,44 @@
-<% if current_user %>
+<div class="container">
+  <% if current_user %>
 
-  <h2>Add a favorite search term:</h2>
-  <%= form_tag favorite_path(current_user.id) do %>
-    <%= label_tag :name %>
-    <%= text_field_tag :name %>
-    <%= hidden_field_tag :user_id , value: current_user.id %>
+    <h3>Add a favorite search term:</h3>
+    <%= form_tag favorite_path(current_user.id) do %>
+      <%= label_tag :name %>
+      <%= text_field_tag :name %>
+      <%= hidden_field_tag :user_id , value: current_user.id %>
 
-    <%= submit_tag "Add favorite search term."%>
+      <%= submit_tag "Add favorite search term."%>
+    <% end %>
   <% end %>
+  <br>
 
-  <div class="row">
-    <% if @event_instances %>
-      <% @event_instances.each do |event| %>
-        <div class= "col-md-3">
+  <% if @event_instances %>
+   <% @event_instances.each do |event| %>
+   <div class="row">
+
+      <div class= "col-md-9">
+        Event: <%= link_to event.name , event.url%> <br>
+        Date: <%= event.start_time.strftime("%b %d, %Y") %><br>
+        Venue: <%= event.venue %><br>
+        <br>
+      </div>
+
+      <div class= "col-md-3">
+        <% if current_user %>
           <%= form_tag add_event_path(current_user.id), method: :patch do %>
           <%= hidden_field_tag :event_id, event.id %>
           <%= submit_tag "Add to your events" , class: 'btn btn-warning'%>
           <% end %>
-        </div>
+        <% end %>
+      </div>
 
-        <div class= "col-md-9">
-          Event: <%= link_to event.name , event.url%> <br>
-          Date: <%= event.start_time.strftime("%b %d, %Y") %><br>
-          Venue: <%= event.venue %><br>
-          <br>
-        </div>
-
-        <hr>
+    </div>
+    <hr>
      <% end %>
    <% end %>
-  </div>
-<% end %>
+   <% if !current_user %>
+   <p>You can search for Seattle events using our wonderful search bar,
+     but to gain full access to the site, please make a
+     <%= link_to 'spotify', "http://www.spotify.com"%> account first.</p>
+     <% end %>
+</div>

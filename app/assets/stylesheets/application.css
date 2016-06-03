@@ -20,6 +20,10 @@
    font-size: 5rem;
  }
 
+ a {
+   text-decoration: none !important;
+ }
+
  li.search {
    margin-top: 11px;
  }

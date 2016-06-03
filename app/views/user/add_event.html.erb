@@ -1,25 +1,27 @@
 <div class="container">
   <% if @user_events %>
-  <h2>Your saved events:</h2><br>
-  <div class="row">
+    <h2>Your saved events:</h2><br>
     <% @user_events.each do |event| %>
-    <div class= "col-md-1">
-      <%= form_tag delete_event_path(current_user.id), method: :delete do %>
-      <%= hidden_field_tag :event_id, event.id %>
-      <%= submit_tag "Delete ?" , class: 'btn btn-warning'%>
-      <% end %>
-    </div>
-    <div class= "col-md-1"></div>
+      <div class="row">
 
+        <div class= "col-md-5">
+          Event: <%= link_to event.name , event.url%> <br>
+          Date: <%= event.start_time.strftime("%b %d, %Y") %><br>
+          Venue: <%= event.venue %><br>
+          <br>
+        </div>
 
-    <div class= "col-md-10">
-      Event: <%= link_to event.name , event.url%> <br>
-      Date: <%= event.start_time.strftime("%b %d, %Y") %><br>
-      Venue: <%= event.venue %><br>
-      <br>
-    </div>
+        <div class= "col-md-1"></div>
 
+        <div class= "col-md-6">
+          <%= form_tag delete_event_path(current_user.id), method: :delete do %>
+          <%= hidden_field_tag :event_id, event.id %>
+          <%= submit_tag "Delete" , class: 'btn btn-danger'%>
+          <% end %>
+        </div>
+
+      </div>
+      <hr>
     <% end %>
-    <% end %>
-  </div>
+  <% end %>
 </div>
