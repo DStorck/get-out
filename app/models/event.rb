@@ -2,9 +2,9 @@ class Event < ActiveRecord::Base
   belongs_to :user
   #attr_accessor :name, :uid, :location, :url, :description, :start_time, :venue
 
-  def self.find_event(info)
-    self.new(info)
-  end
+  # def self.find_event(info)
+  #   self.new(info)
+  # end
 
   def self.create_from_eventful(response)
     event = Event.new
@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
     event.description = response["description"]
     event.start_time = response["start_time"]
     event.venue = response["venue_name"]
-
+    
     if event.save
       return event
     else

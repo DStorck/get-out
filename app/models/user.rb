@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
     fav = Favorite.create(name: name, category: category, user_id: current_user.id)
   end
 
+  #goes through user faved keywords and runs searches, then parses out results to make events
   def self.search_favorites(current_user)
     fav_keywords = Favorite.where(user_id: current_user.id).map{ |fav| fav.name }
     @event_instances = []
