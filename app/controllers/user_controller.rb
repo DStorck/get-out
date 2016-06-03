@@ -59,6 +59,10 @@ class UserController < ApplicationController
 
   private
 
+  def set_city_to_Seattle
+
+  end
+
   def delete_past_events
     @user_events = Event.where(user_id: current_user.id)
     now = Time.now.utc
