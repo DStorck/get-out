@@ -42,7 +42,19 @@ class UserController < ApplicationController
   end
 
   def profile
-    
+    @user = current_user
+  end
+
+  def edit_profile
+    @user = current_user
+  end
+
+  def update_profile
+    @user = current_user
+    city = params[:city] == "" ? current_user.city : params[:city]
+    name = params[:name] == "" ? current_user.name : params[:name]
+    @user.update(city: city, name: name)
+    redirect_to root_path
   end
 
   private

@@ -1,0 +1,4 @@
+<%= current_user.name %>'s profile: <br>
+Member of Get Out since : <%= current_user.created_at.strftime("%b %d, %Y") %><br>
+Current Search City: <%= current_user.city.capitalize %><br>
+<%= link_to 'Edit Profile', edit_profile_path(current_user.id) %>

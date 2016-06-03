@@ -1,0 +1,8 @@
+Edit your profile:
+<%= form_tag update_profile_path(current_user.id), method: :patch do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %>
+  <%= label_tag :city %>
+  <%= text_field_tag :city %>
+<%= submit_tag "Update Profile"%>
+<% end %>

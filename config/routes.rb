@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#create'
   delete "/logout" => "sessions#destroy"
 
-  get 'user/:id/profile' => 'user#profile' , as: :profile
+  get 'user/:id' => 'user#profile' , as: :profile
+  get 'user/:id/edit' => 'user#edit_profile', as: :edit_profile
+  patch 'user/:id' => "user#update_profile", as: :update_profile
+
+
   get "user/:id/favorites" => "user#show_faves" , as: :favorite
   post 'user/:id/favorites' => 'user#favorite'
   delete "user/:id/favorites" => "user#delete_fave"
