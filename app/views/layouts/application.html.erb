@@ -12,11 +12,11 @@
   <main class="container">
   <nav class="navbar navbar-inverse">
     <div class="nav-right">
-    <% if current_user %>
-    <h1><%= link_to "GET OUT!", search_favorites_path(current_user.id) %></h1>
-    <% else %>
-    <h1> Get Out! </h1>
-    <% end %>
+     <% if current_user %>
+      <h1><%= link_to "GET OUT!", search_favorites_path(current_user.id) %></h1>
+     <% else %>
+      <h1> Get Out! </h1>
+     <% end %>
       <ul class="nav navbar-nav nav-pills ">
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
@@ -28,7 +28,7 @@
           <li><%= link_to "Log In", '/auth/spotify'%></li>
         <% end %>
         <li class="search">
-          <%= form_tag '/search' do %>
+          <%= form_tag display_events_path do %>
           <%= text_field_tag :term %>
           <%= submit_tag "Find Events"%>
           <% end %>
@@ -39,7 +39,6 @@
 
 <%= yield %>
 </main>
-
 
 </body>
 </html>

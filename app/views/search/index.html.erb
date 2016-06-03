@@ -6,17 +6,17 @@
       <%= label_tag :name %>
       <%= text_field_tag :name %>
       <%= hidden_field_tag :user_id , value: current_user.id %>
-
       <%= submit_tag "Add favorite search term."%>
     <% end %>
+
   <% end %>
   <br>
 
   <%= render partial: 'display' %>
 
    <% if !current_user %>
-   <p>You can search for Seattle events using our wonderful search bar,
-     but to gain full access to the site, please make a
+    <p>You can search for Seattle events using our wonderful search bar,
+      but to gain full access to the site, please make a
      <%= link_to 'spotify', "http://www.spotify.com"%> account first.</p>
-     <% end %>
+    <% end %>
 </div>
