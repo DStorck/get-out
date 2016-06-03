@@ -41,6 +41,10 @@ class UserController < ApplicationController
     render :add_event
   end
 
+  def profile
+    
+  end
+
   private
 
   def delete_past_events

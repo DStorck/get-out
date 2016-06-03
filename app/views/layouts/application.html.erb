@@ -20,7 +20,7 @@
       <ul class="nav navbar-nav nav-pills ">
         <li><%= link_to "Home", root_path %></li>
         <% if current_user %>
-          <li><%= link_to "Welcome, #{ current_user.name }", user_events_path(current_user.id)%></li>
+          <li><%= link_to "Welcome, #{ current_user.name }", profile_path(current_user.id)%></li>
           <li><%= link_to "Your Search Terms", favorite_path(current_user.id) %> </li>
           <li><%= link_to "Your Events", user_events_path(current_user.id) %></li>
           <li><%= link_to "Log Out", logout_path, method: :delete%></li>

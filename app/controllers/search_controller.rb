@@ -4,8 +4,8 @@ class SearchController < ApplicationController
   end
 
   def display_events
-  
-    initial_response = EventfulAPIWrapper.search(params[:term])
+
+    initial_response = EventfulAPIWrapper.search(params[:term], current_user)
     response_array = initial_response["events"]["event"] if initial_response["total_items"] != "0"
     @event_instances = []
     if initial_response["total_items"].to_i == 1
