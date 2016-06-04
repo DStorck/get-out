@@ -43,10 +43,8 @@ class User < ActiveRecord::Base
           temp = Event.create_from_eventful(event)
           @event_instances << temp
         end
-
       end
     end
     @event_instances
-
   end
 end
