@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :favorites
   has_many :events
+  validates :uid, presence: true, uniqueness: true
 
   def self.find_or_create_from_omniauth(auth_hash)
     user = self.find_by(uid: auth_hash["info"]["id"], provider: auth_hash["provider"])
