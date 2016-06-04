@@ -20,4 +20,7 @@
     </div>
     <hr>
   <% end %>
+  <% if @event_instances.empty? %>
+  <p>Sorry, that search term did not return any results, go make your own fun!</p>
+  <% end %>
 <% end %>
