@@ -1,8 +1,15 @@
 class User < ActiveRecord::Base
-  has_secure_password
   has_many :favorites
   has_many :events
   validates :uid, presence: true, uniqueness: true
+  validate :provider_must_be_spotify
+  validates :provider, presence: true
+
+  def provider_must_be_spotify
+    if provider != "spotify"
+      errors.add(:provider, "provider must be spotify")
+    end
+  end
 
   def self.find_or_create_from_omniauth(auth_hash)
     user = self.find_by(uid: auth_hash["info"]["id"], provider: auth_hash["provider"])
@@ -35,7 +42,7 @@ class User < ActiveRecord::Base
     @event_instances = []
     fav_keywords.each do |keyword|
       initial_response  = EventfulAPIWrapper.search(keyword, current_user)
-      response_array = initial_response["events"]["event"] if initial_response["total_items"] != "0"
+      response_array = initial_response["events"]["event"] if initial_response["total_items"].to_i != 0
 
       if initial_response["total_items"].to_i == 1
         @event_instances << Event.create_from_eventful(response_array)

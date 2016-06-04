@@ -4,8 +4,11 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+cat_wrestling:
+  name: cat_mania
+  uid: cats_are_amazing_wrestlers
+  location: seattle
+  url: http://catwrestle.com
+  start_time: Time.now + 100
+  venue: my_house
+  user: first_user
