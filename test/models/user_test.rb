@@ -72,23 +72,16 @@ class UserTest < ActiveSupport::TestCase
   end
 
 
-
-  # test "user can search all their favorited search terms at once", vcr: do
-  #   @user = User.find_or_create_from_omniauth(@known)
-  #   @user_events = User.search_favorites(@user)
-  #   assert_equal @user_events[0].class, Event
-  # end
-
   describe "API" , :vcr do
       before do
         @known = {
           "provider" => "spotify",
           "info" => { "id" => "known_user" } }
         @current_user = User.find_or_create_from_omniauth(@known)
+      
       end
 
       it "can search all favorited terms and return event instances" , :vcr do
-        binding.pry
         @user_events = User.search_favorites(@current_user)
         assert_equal @user_events[0].class, Event
       end

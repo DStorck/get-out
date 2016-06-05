@@ -1,4 +1,5 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
+  before_action :require_login
 
   def favorite
     User.favorite(params, current_user)

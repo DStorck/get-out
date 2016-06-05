@@ -12,7 +12,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'pry-rails'
 gem 'rspotify'
 gem "httparty"
 gem 'omniauth-oauth2', '~> 1.3.1'
@@ -39,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 gem 'sqlite3'
+gem 'pry-rails'
  gem 'byebug'
  gem "dotenv-rails"
  gem 'minitest-vcr'

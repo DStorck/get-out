@@ -12,20 +12,19 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback' => 'sessions#create'
   delete "/logout" => "sessions#destroy"
 
-  get 'user/:id' => 'user#profile' , as: :profile
-  get 'user/:id/edit' => 'user#edit_profile', as: :edit_profile
-  patch 'user/:id' => "user#update_profile", as: :update_profile
+  get 'users/:id' => 'users#profile' , as: :profile
+  get 'users/:id/edit' => 'users#edit_profile', as: :edit_profile
+  patch 'users/:id' => "users#update_profile", as: :update_profile
 
+  get "users/:id/favorites" => "users#show_faves" , as: :favorite
+  post 'users/:id/favorites' => 'users#favorite'
+  delete "users/:id/favorites" => "users#delete_fave"
 
-  get "user/:id/favorites" => "user#show_faves" , as: :favorite
-  post 'user/:id/favorites' => 'user#favorite'
-  delete "user/:id/favorites" => "user#delete_fave"
+  get "users/:id/favorite-events" => "users#search_favorites", as: :search_favorites
 
-  get "user/:id/favorite-events" => "user#search_favorites", as: :search_favorites
-
-  patch "user/:id/events" => "user#add_event", as: :add_event
-  delete "user/:id/events" => "user#delete_event" , as: :delete_event
-  get "user/:id/events" => "user#user_events", as: :user_events
+  patch "users/:id/events" => "users#add_event", as: :add_event
+  delete "users/:id/events" => "users#delete_event" , as: :delete_event
+  get "users/:id/events" => "users#user_events", as: :user_events
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

@@ -41,19 +41,13 @@ class User < ActiveRecord::Base
     fav_keywords = Favorite.where(user_id: current_user.id).map{ |fav| fav.name }
     @event_instances = []
     fav_keywords.each do |keyword|
-      initial_response  = EventfulAPIWrapper.search(keyword, current_user)
-      response_array = initial_response["events"]["event"] if initial_response["total_items"].to_i != 0
-
-      if initial_response["total_items"].to_i == 1
-        @event_instances << Event.create_from_eventful(response_array)
-
-      elsif initial_response["total_items"].to_i > 1
-        response_array.each do |event|
-          temp = Event.create_from_eventful(event)
-          @event_instances << temp
-        end
+      events  = EventfulAPIWrapper.search(keyword, current_user)
+      events.each do |event|
+       @event_instances << event
       end
     end
     @event_instances
+
+
   end
 end

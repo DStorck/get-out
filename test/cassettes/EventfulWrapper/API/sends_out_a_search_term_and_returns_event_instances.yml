@@ -23,7 +23,7 @@ http_interactions:
       Content-Length:
       - '26861'
       Date:
-      - Sat, 04 Jun 2016 23:32:54 GMT
+      - Sat, 04 Jun 2016 23:50:24 GMT
       Server:
       - lighttpd/1.4.35
     body:
@@ -31,7 +31,7 @@ http_interactions:
       string: !binary |-
         eyJsYXN0X2l0ZW0iOm51bGwsInRvdGFsX2l0ZW1zIjoiNTEiLCJmaXJzdF9p
         dGVtIjpudWxsLCJwYWdlX251bWJlciI6IjEiLCJwYWdlX3NpemUiOiIxMCIs
-        InBhZ2VfaXRlbXMiOm51bGwsInNlYXJjaF90aW1lIjoiMC4xNjQiLCJwYWdl
+        InBhZ2VfaXRlbXMiOm51bGwsInNlYXJjaF90aW1lIjoiMC4yNjMiLCJwYWdl
         X2NvdW50IjoiNiIsImV2ZW50cyI6eyJldmVudCI6W3sid2F0Y2hpbmdfY291
         bnQiOm51bGwsIm9sc29uX3BhdGgiOiJBbWVyaWNhL0xvc19BbmdlbGVzIiwi
         Y2FsZW5kYXJfY291bnQiOm51bGwsImNvbW1lbnRfY291bnQiOm51bGwsInJl
@@ -627,7 +627,7 @@ http_interactions:
         cy1iZWxsZXZ1ZS0vVjAtMDAxLTAwMDU2NDAxNi03P3V0bV9zb3VyY2U9YXBp
         cyZ1dG1fbWVkaXVtPWFwaW0mdXRtX2NhbXBhaWduPWFwaWMifV19fQo=
     http_version: 
-  recorded_at: Sat, 04 Jun 2016 23:33:01 GMT
+  recorded_at: Sat, 04 Jun 2016 23:50:31 GMT
 - request:
     method: get
     uri: http://api.eventful.com/json/events/search?app_key=PNh8dcmkrJKGX8tx&keywords=ray%20lamontagne&location=seattle
@@ -651,12 +651,12 @@ http_interactions:
       Content-Length:
       - '2130'
       Date:
-      - Sat, 04 Jun 2016 23:32:55 GMT
+      - Sat, 04 Jun 2016 23:50:26 GMT
       Server:
       - lighttpd/1.4.35
     body:
       encoding: UTF-8
-      string: '{"last_item":null,"total_items":"1","first_item":null,"page_number":"1","page_size":"10","page_items":null,"search_time":"0.414","page_count":"1","events":{"event":{"watching_count":null,"olson_path":"America/Los_Angeles","calendar_count":null,"comment_count":null,"region_abbr":"WA","postal_code":"98072","going_count":null,"all_day":"0","latitude":"47.7287703","groups":null,"url":"http://seattle.eventful.com/events/ray-lamontagne-ouroboros-tour-2016-/E0-001-092108802-3?utm_source=apis&utm_medium=apim&utm_campaign=apic","id":"E0-001-092108802-3","privacy":"1","city_name":"Woodinville","link_count":null,"longitude":"-122.1500033","country_name":"United
+      string: '{"last_item":null,"total_items":"1","first_item":null,"page_number":"1","page_size":"10","page_items":null,"search_time":"0.588","page_count":"1","events":{"event":{"watching_count":null,"olson_path":"America/Los_Angeles","calendar_count":null,"comment_count":null,"region_abbr":"WA","postal_code":"98072","going_count":null,"all_day":"0","latitude":"47.7287703","groups":null,"url":"http://seattle.eventful.com/events/ray-lamontagne-ouroboros-tour-2016-/E0-001-092108802-3?utm_source=apis&utm_medium=apim&utm_campaign=apic","id":"E0-001-092108802-3","privacy":"1","city_name":"Woodinville","link_count":null,"longitude":"-122.1500033","country_name":"United
         States","country_abbr":"USA","region_name":"Washington","start_time":"2016-09-05
         19:00:00","tz_id":null,"description":null,"modified":"2016-03-22 04:56:46","venue_display":"1","tz_country":null,"performers":{"performer":{"creator":"edrca","linker":"evdb","name":"Ray
         Lamontagne","url":"http://concerts.eventful.com/Ray-Lamontagne?utm_source=apis&utm_medium=apim&utm_campaign=apic","id":"P0-001-000000891-3","short_bio":"Folk
@@ -667,7 +667,7 @@ http_interactions:
 
 '
     http_version: 
-  recorded_at: Sat, 04 Jun 2016 23:33:02 GMT
+  recorded_at: Sat, 04 Jun 2016 23:50:32 GMT
 - request:
     method: get
     uri: http://api.eventful.com/json/events/search?app_key=PNh8dcmkrJKGX8tx&keywords=ksdjfkjsdf&location=seattle
@@ -691,14 +691,14 @@ http_interactions:
       Content-Length:
       - '161'
       Date:
-      - Sat, 04 Jun 2016 23:32:57 GMT
+      - Sat, 04 Jun 2016 23:50:27 GMT
       Server:
       - lighttpd/1.4.35
     body:
       encoding: UTF-8
-      string: '{"last_item":null,"total_items":"0","first_item":null,"page_number":"1","page_size":"10","page_items":null,"search_time":"0.141","page_count":"0","events":null}
+      string: '{"last_item":null,"total_items":"0","first_item":null,"page_number":"1","page_size":"10","page_items":null,"search_time":"0.191","page_count":"0","events":null}
 
 '
     http_version: 
-  recorded_at: Sat, 04 Jun 2016 23:33:04 GMT
+  recorded_at: Sat, 04 Jun 2016 23:50:34 GMT
 recorded_with: VCR 3.0.3
