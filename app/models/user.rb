@@ -40,10 +40,12 @@ class User < ActiveRecord::Base
   def self.search_favorites(current_user)
     fav_keywords = Favorite.where(user_id: current_user.id).map{ |fav| fav.name }
     @event_instances = []
-    fav_keywords.each do |keyword|
-      events  = EventfulAPIWrapper.search(keyword, current_user)
-      events.each do |event|
-       @event_instances << event
+    if !fav_keywords.empty?
+      fav_keywords.each do |keyword|
+        events  = EventfulAPIWrapper.search(keyword, current_user)
+        events.each do |event|
+         @event_instances << event
+        end
       end
     end
     @event_instances
